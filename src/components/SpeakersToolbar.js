@@ -17,7 +17,7 @@ function SpeakersToolbar ({
                   type="checkbox"
                   checked={showSessions}
                   onChange={(event) => {
-                    setShowSessions(event.target.checked)
+                    setShowSessions(event.target.checked);
                   }}
                 />
                 <span className="switch"></span>
@@ -30,7 +30,7 @@ function SpeakersToolbar ({
                   className="form-control theme"
                   value={theme}
                   onChange={(event) => {
-                    setTheme(event.target.value)
+                    setTheme(event.target.value);
                   }}
                 >
                   <option value="light">Light</option>
@@ -42,7 +42,7 @@ function SpeakersToolbar ({
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default SpeakersToolbar
+export default SpeakersToolbar;

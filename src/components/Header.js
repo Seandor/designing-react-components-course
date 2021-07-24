@@ -12,7 +12,7 @@ function Header ({ theme }) {
               Silicon Valley Code Camp
             </h4>
           </div>
-          <div className={theme === "light" ? "" : "text-info" }>
+          <div className={theme === 'light' ? '' : 'text-info' }>
             Hello Mr. Smith &nbsp;&nbsp;
             <span>
               <a href="#">
@@ -23,7 +23,7 @@ function Header ({ theme }) {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Header
+export default Header;

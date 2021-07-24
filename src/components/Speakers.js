@@ -1,9 +1,9 @@
-import SpeakersToolbar from './SpeakersToolbar'
-import SpeakersList from "./SpeakersList";
-import { useState } from "react"
+import SpeakersToolbar from './SpeakersToolbar';
+import SpeakersList from './SpeakersList';
+import { useState } from 'react';
 
 function Speakers ({ theme, setTheme }) {
-  const [showSessions, setShowSessions] = useState(true)
+  const [showSessions, setShowSessions] = useState(true);
 
   return (
     <>
@@ -16,7 +16,7 @@ function Speakers ({ theme, setTheme }) {
 
       <SpeakersList showSessions={showSessions} />
     </>
-  )
+  );
 }
 
-export default Speakers
+export default Speakers;

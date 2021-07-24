@@ -2,10 +2,10 @@
 function Session({ title, room }) {
   return (
     <span className="session w-100">
-      {title}{" "}
+      {title}{' '}
       <strong>Room: {room}</strong>
     </span>
-  )
+  );
 }
 
 function Sessions({ sessions }) {
@@ -13,7 +13,7 @@ function Sessions({ sessions }) {
     <div className="sessionBox card h-250">
       <Session title={sessions[0].title} room={sessions[0].room.name} />
     </div>
-  )
+  );
 }
 
 function SpeakerImage({
@@ -30,7 +30,7 @@ function SpeakerImage({
         alt={`${first} ${last}`}
       />
     </div>
-  )
+  );
 }
 
 function SpeakerFavorite({ favorite, onFavoriteToggle }) {
@@ -42,14 +42,14 @@ function SpeakerFavorite({ favorite, onFavoriteToggle }) {
         <i
           className={
             favorite === true
-            ? "fa fa-star orange"
-            : "fa fa-star-o orange"
+              ? 'fa fa-star orange'
+              : 'fa fa-star-o orange'
           }
-        />{" "}
-        Favorite{" "}
+        />{' '}
+        Favorite{' '}
       </span>
     </div>
-  )
+  );
 }
 
 function SpeakerDemographics({
@@ -88,11 +88,11 @@ function SpeakerDemographics({
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 function Speaker({ speaker, showSessions, onFavoriteToggle }) {
-  const { id, first, last, sessions } = speaker
+  const { id, first, last, sessions } = speaker;
   return (
     <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-sm-12 col-xs-12">
       <div className="card card-height p-4 mt-4">
@@ -105,7 +105,7 @@ function Speaker({ speaker, showSessions, onFavoriteToggle }) {
           : null
       }
     </div>
-  )
+  );
 }
 
-export default Speaker
+export default Speaker;
