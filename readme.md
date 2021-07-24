@@ -6,3 +6,4 @@
 2. Run `npm install react react-dom next` to add some required dependencies
 3. Next.js uses file based routing, `/pages`
 
+## Optimistic UI
