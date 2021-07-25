@@ -1,15 +1,19 @@
+import ReactPlaceholder from 'react-placeholder';
+
 import Speaker from './Speaker';
 import useRequestData, { RequestStatus } from '../hooks/useRequestData';
-import ReactPlaceholder from 'react-placeholder';
 import { data } from '../../SpeakerData';
+import { useSpeakerFilterContext } from '../context/SpeakerFilterContext';
 
-function SpeakersList ({ showSessions }) {
+function SpeakersList () {
   const {
     requestData: speakersData,
     requestStatus,
     error,
     updateRecord
   } = useRequestData(data);
+
+  const { searchQuery, eventYear } = useSpeakerFilterContext();
   
   if (requestStatus === RequestStatus.Failure) {
     return (
@@ -28,21 +32,32 @@ function SpeakersList ({ showSessions }) {
         ready={requestStatus === RequestStatus.Success}
       >
         <div className="row">
-          {speakersData.map(function (speaker) {
-            return (
-              <Speaker
-                key={speaker.id}
-                speaker={speaker}
-                showSessions={showSessions}
-                onFavoriteToggle={(doneCallback) => {
-                  updateRecord({
-                    ...speaker,
-                    favorite: !speaker.favorite,
-                  }, doneCallback);
-                }}
-              />
-            );
-          })}
+          {speakersData
+            .filter(speaker => {
+              return (
+                speaker.first.toLowerCase().includes(searchQuery) ||
+                speaker.last.toLowerCase().includes(searchQuery)
+              );
+            })
+            .filter(speaker => {
+              return speaker.sessions.find(session => {
+                return session.eventYear === eventYear;
+              });
+            })
+            .map(function (speaker) {
+              return (
+                <Speaker
+                  key={speaker.id}
+                  speaker={speaker}
+                  onFavoriteToggle={(doneCallback) => {
+                    updateRecord({
+                      ...speaker,
+                      favorite: !speaker.favorite,
+                    }, doneCallback);
+                  }}
+                />
+              );
+            })}
         </div>
       </ReactPlaceholder>
     </div>
